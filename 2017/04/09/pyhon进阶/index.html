@@ -1,22 +1,254 @@
-doctype html
-html
-	include partial/head.jade
-	body
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>python | frozenchan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+      <link rel="icon" href="/favicon.png">
+    
 
-		#postContainer
-			#postTop
-				h4#logo #{theme.logo}
-				br
-				br
-				h2#postTitle #{page.title}
-				br
-				span.postTime(class='fa fa-calendar' aria-hidden='true') #{date(page.date['_i'],'YYYY-M-D')}
-				each tag in page.tags.data
-					span.postTags(class='fa fa-tags'  aria-hidden='true') &nbsp;#{tag.name}
-				br
-				br
-			-str = markdown(page.content)
-			section#articleDiv!= str
-		script(src='/js/jquery.min.js')
-		script(src='/js/highlight.min.js')
-		script(src='/js/start.js')
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/js/google-code-prettify/tomorrow-night-eighties.min.css">
+
+  </head>
+
+  <body>
+
+<header>
+	<a id="logo" href="/" title="frozenchan">
+	<img src="/favicon.png" alt="frozenchan"></a>
+	
+	
+		<!--搜索栏-->
+		<i class="js-toggle-search iconfont icon-search"></i>
+
+
+<form class="js-search search-form search-form--modal" method="get" action="http://gushi.li" role="search">
+	<div class="search-form__inner">
+		<div>
+			<i class="iconfont icon-search"></i>
+			<input class="text-input" placeholder="Enter Key..." type="search">
+		</div>
+	</div>
+</form>
+	
+
+	
+		<!--侧边导航栏-->
+		<a id="nav-toggle" href="#"><span></span></a>
+
+<nav>
+	<div class="menu-top-container">
+		<ul id="menu-top" class="menu">
+			
+				
+				<li class="current-menu-item">
+					<a href="http://weibo.com/yumemor/" target="_blank">Weibo</a>
+				</li>
+			
+		</ul>
+	</div>
+</nav>
+	
+
+</header>
+<div class="m-header ">
+	<section id="hero1" class="hero">
+		<div class="inner">
+		</div>
+	</section>
+	
+		<figure class="top-image" data-enable=true></figure>
+	
+</div>
+
+<!--文章列表-->
+<div class="wrapper">
+  
+    <!--文章-->
+<article>
+	
+  
+    <h1 class="post-title" itemprop="name">
+      python
+    </h1>
+  
+
+	<div class='post-body mb'>
+		<h1 id="pyhon进阶"><a href="#pyhon进阶" class="headerlink" title="pyhon进阶"></a>pyhon进阶</h1><hr>
+<h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><p>函数名就是指向函数的变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">abs(-10)//输出10</div><div class="line">f=abs</div><div class="line">f(-10)//输出10</div><div class="line">abs=len</div><div class="line">abs([1,2,3])//返回一个list的长度</div></pre></td></tr></table></figure></p>
+<h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><p>能接收函数作为参数的函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import math</div><div class="line">def add(x,y,f):</div><div class="line">return f(x)+f(y)</div><div class="line">add(-5,9,abs)//输出14</div><div class="line">add(4,9,math.sqrt)//输出5</div></pre></td></tr></table></figure></p>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>map函数是一个高阶函数，接收list与函数f，将f作用于list的每个元素上，并返回一个新的list<br>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def format_name(s):</div><div class="line">    return s.capitalize()#首字母大写，其余小写函数</div><div class="line">    #亦可以使用s[0].upper,s[1:].lower</div><div class="line">print map(format_name, [&apos;adam&apos;, &apos;LISA&apos;, &apos;barT&apos;])</div></pre></td></tr></table></figure></p>
+<h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h3><p>reduce函数是接收list和一个函数f，对list的每个元素反复调用f<br>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def prod(x, y):</div><div class="line">    return x*y</div><div class="line"></div><div class="line">print reduce(prod, [2, 4, 5, 7, 12])//输出结果为2*4*5*7*12</div></pre></td></tr></table></figure></p>
+<p>接收的函数f必须接收两个参数<br>reduce函数还可以输入第三个参数，作为计算的初始值</p>
+<h3 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h3><p>filter函数接收list和f，f对接收的参数进行判断，返回ture和false<br>filter返回由符合条件的元素组成的list<br>例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">import math</div><div class="line"></div><div class="line">def is_sqr(x):</div><div class="line">    return math.sqrt(x)%1==0</div><div class="line"></div><div class="line">print filter(is_sqr, range(1,101))</div></pre></td></tr></table></figure></p>
+<p>s.strip(rm) 删除 s 字符串中开头、结尾处的 rm 序列的字符。<br>当rm为空时，默认删除空白符<br>例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">a = &apos;     123&apos;</div><div class="line">a.strip()</div><div class="line">结果： &apos;123&apos;</div><div class="line"></div><div class="line">a=&apos;\t\t123\r\n&apos;</div><div class="line">a.strip()</div><div class="line">结果：&apos;123&apos;</div></pre></td></tr></table></figure></p>
+<h3 id="sorted"><a href="#sorted" class="headerlink" title="sorted"></a>sorted</h3><p>sorted()也是一个高阶函数，它可以接收一个比较函数来实现自定义排序，比较函数的定义是，传入两个待比较的元素 x, y，如果 x 应该排在 y 的前面，返回 -1，如果 x 应该排在 y 的后面，返回 1。如果 x 和 y 相等，返回 0。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">def cmp_ignore_case(s1, s2):</div><div class="line">    </div><div class="line">    </div><div class="line">    if s1.upper() &lt; s2.upper():</div><div class="line">        return -1</div><div class="line">    if s1.upper() &gt; s2.upper():</div><div class="line">        return 1</div><div class="line">    return 0</div><div class="line"></div><div class="line">print sorted([&apos;bob&apos;, &apos;about&apos;, &apos;Zoo&apos;, &apos;Credit&apos;], cmp_ignore_case)</div></pre></td></tr></table></figure></p>
+<h3 id="返回类型"><a href="#返回类型" class="headerlink" title="返回类型"></a>返回类型</h3><p>python中函数不仅可以返回int，str，list，dict类型，还可以返回函数<br>如可以延迟计算<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def calc_sum(lst):</div><div class="line">    def lazy_sum():</div><div class="line">        return sum(lst)</div><div class="line">    return lazy_sum</div></pre></td></tr></table></figure></p>
+<p>延迟计算意思为先返回计算的方法（即函数），待到需要使用时再进行计算</p>
+<p>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">def calc_prod(lst):</div><div class="line">    def pro(x,y):</div><div class="line">        return x*y</div><div class="line">    def lazy_pro():</div><div class="line">        return reduce(pro,lst)</div><div class="line">    return lazy_pro</div><div class="line"></div><div class="line">f = calc_prod([1, 2, 3, 4])</div><div class="line">print f()</div></pre></td></tr></table></figure></p>
+<p>注：在函数内部定义的函数不能被外部所调用</p>
+<h3 id="python中闭包"><a href="#python中闭包" class="headerlink" title="python中闭包"></a>python中闭包</h3><p>内层函数引用了外层函数的变量，再返回内层函数，称其为闭包<br>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 希望一次返回3个函数，分别计算1x1,2x2,3x3:</div><div class="line">def count():</div><div class="line">    fs = []</div><div class="line">    for i in range(1, 4):</div><div class="line">        def f():</div><div class="line">             return i*i</div><div class="line">        fs.append(f)//将f这个函数传入fs</div><div class="line">    return fs</div><div class="line"></div><div class="line">f1, f2, f3 = count()</div></pre></td></tr></table></figure></p>
+<p>输出f1，f2，f3的结果却全为9<br>并不是预期中的1,4,9<br>f1存储的只是计算方法，当输出f1的时候，i的值已经为3，故输出9<br>故返回函数不要引用循环变量或者后续很容易就改变的变量<br>若修改为fs.append（f()），则在返回的时候已经计算好了结果，返回的是当前f（i）的值<br>即修改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">def count():</div><div class="line">    fs = []</div><div class="line">    for i in range(1, 4):</div><div class="line">        def f():</div><div class="line">            return i*i</div><div class="line">        fs.append(f())//将f（）运行的结果传入fs</div><div class="line">    return fs</div><div class="line"></div><div class="line">f1, f2, f3 = count()</div><div class="line">print f1, f2, f3</div></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">def count():</div><div class="line">    fs = []</div><div class="line">    for i in range(1, 4):</div><div class="line">        def f(m=i):</div><div class="line">            return m*m</div><div class="line">        fs.append(f)</div><div class="line">    return fs</div><div class="line"></div><div class="line">f1, f2, f3 = count()</div><div class="line">print f1(), f2(), f3()</div></pre></td></tr></table></figure></p>
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">map(lambda x: x * x, [1, 2, 3, 4, 5, 6, 7, 8, 9])</div><div class="line">[1, 4, 9, 16, 25, 36, 49, 64, 81]</div></pre></td></tr></table></figure>
+<p>其中lambda表示就是匿名函数，<code>lambda x: x * x</code>,前面的表示函数参数<br>表示的就是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">def f(x)</div><div class="line">    return x*x</div></pre></td></tr></table></figure></p>
+<p>例：利用匿名函数简化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">def is_not_empty(s):</div><div class="line">    return s and len(s.strip()) &gt; 0</div><div class="line">filter(is_not_empty, [&apos;test&apos;, None, &apos;&apos;, &apos;str&apos;, &apos;  &apos;, &apos;END&apos;])</div><div class="line">简化后</div><div class="line">print filter(lambda s:s and len(s.strip())&gt;0, [&apos;test&apos;, None, &apos;&apos;, &apos;str&apos;, &apos;  &apos;, &apos;END&apos;])</div></pre></td></tr></table></figure></p>
+<h3 id="decorator装饰器"><a href="#decorator装饰器" class="headerlink" title="decorator装饰器"></a>decorator装饰器</h3><p>装饰器其实就是一个高阶函数<br>装饰器详细学习<a href="http://python.jobbole.com/85056/或" target="_blank" rel="external">http://python.jobbole.com/85056/或</a><br><a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819879946007bbf6ad052463ab18034f0254bf355000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819879946007bbf6ad052463ab18034f0254bf355000</a><br><a href="http://www.cnblogs.com/rollenholt/archive/2012/05/02/2479833.html" target="_blank" rel="external">http://www.cnblogs.com/rollenholt/archive/2012/05/02/2479833.html</a><br><a href="http://blog.csdn.net/u011943221/article/details/50118419" target="_blank" rel="external">http://blog.csdn.net/u011943221/article/details/50118419</a><br>例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">import time</div><div class="line"></div><div class="line">def performance(f):</div><div class="line">    def fn(*args, **kw):</div><div class="line">        t1=time.time()</div><div class="line">        r=f(*args, **kw)//调用所传入函数的返回值</div><div class="line">        t2=time.time()</div><div class="line">        print &apos;call %s() in %f &apos; %(f.__name__,(t2-t1))</div><div class="line">        return r</div><div class="line">    return fn</div><div class="line">@performance</div><div class="line">def factorial(n):</div><div class="line">    return reduce(lambda x,y: x*y, range(1, n+1))</div><div class="line">print factorial(10)</div></pre></td></tr></table></figure></p>
+<p>带参数的装饰器<br>以及把原函数的属性复制到新函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">import time</div><div class="line"></div><div class="line">def performance(unit):</div><div class="line">    def perf_decorator(f):</div><div class="line">        def wrapper(*arg,**kw):</div><div class="line">            t1=time.time()</div><div class="line">            r=f(*arg,**kw)</div><div class="line">            t2=time.time()</div><div class="line">            if unit==&apos;ms&apos;:</div><div class="line">                t=(t2-t1)*1000</div><div class="line">            else:</div><div class="line">                t=t2-t1</div><div class="line">            print &apos;call %s() in %f %s&apos;%(f.__name__,t,unit)</div><div class="line">            return r</div><div class="line">        return wrapper</div><div class="line">    return perf_decorator</div><div class="line"></div><div class="line">@performance(&apos;ms&apos;)</div><div class="line">def factorial(n):</div><div class="line">    return reduce(lambda x,y: x*y, range(1, n+1))</div><div class="line"></div><div class="line">print factorial(10)</div></pre></td></tr></table></figure></p>
+<h3 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import functools</div><div class="line"></div><div class="line">sorted_ignore_case = functools.partial(sorted,cmp=lambda s1,s2:cmp(s1.lower(),s2.lower()))</div><div class="line"></div><div class="line">print sorted_ignore_case([&apos;bob&apos;, &apos;about&apos;, &apos;Zoo&apos;, &apos;Credit&apos;])</div></pre></td></tr></table></figure>
+<h2 id="模块与包"><a href="#模块与包" class="headerlink" title="模块与包"></a>模块与包</h2><p>当代码量多起来之后，就很难进行维护，因此需要分模块，不同的模块中即使变量名相同也没有关系，当两个人写的模块的名字有冲突时，可以考虑放入不同的包。<br>引用模块的时候采取 <code>import math（此为模块名）</code><br>引用完整模块<code>import p1.util</code><br>包下面必须要有 <code>__init__.py</code>文件，即使文件内容为空，而且每层都要有<br>只有这样python才能将这个目录当成一个包来处理</p>
+<p>如果只希望导入某几个函数，而不是全部函数，则可以采用下述策略<br><code>from math import pow, sin, log</code></p>
+<p>当导入模块名冲突的时候可以起别名<br><code>from math import log
+from logging import log as logger</code></p>
+<p>如果导入的模块不存在的时候python解释器会报ImportError错误<br>可以采用动态导入模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">try:</div><div class="line">    from cStringIO import StringIO</div><div class="line">except ImportError:</div><div class="line">    from StringIO import StringIO</div></pre></td></tr></table></figure></p>
+<p>try是捕获错误，当捕获到指定错误的时候，执行except语句</p>
+<h3 id="使用futrue"><a href="#使用futrue" class="headerlink" title="使用futrue"></a>使用<strong>futrue</strong></h3><p><code>from __future__ import division</code><br>试用新版本中的函数<br>测试新属性</p>
+<h3 id="模块管理工具"><a href="#模块管理工具" class="headerlink" title="模块管理工具"></a>模块管理工具</h3><p>安装第三方模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">-easy_install</div><div class="line">-pip</div></pre></td></tr></table></figure></p>
+<p><code>pip install web.py</code><br>安装一个第三方的web.py模块<br>通过 pypi.python.org 查看相关桉树</p>
+<h2 id="python之面向对象编程"><a href="#python之面向对象编程" class="headerlink" title="python之面向对象编程"></a>python之面向对象编程</h2><p>###定义类并创建对象<br>定义一个简单的person类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class person():</div><div class="line">    pass</div><div class="line">xiaoming=person()</div><div class="line">xiaohong=person()</div><div class="line">print xiaoming</div><div class="line">print xiaohong</div><div class="line">print xiaoming==xiaohong</div></pre></td></tr></table></figure></p>
+<p>上述程序分别是创建实例，打印实例并判断实例是否相等</p>
+<h3 id="创建实例属性"><a href="#创建实例属性" class="headerlink" title="创建实例属性"></a>创建实例属性</h3><p>给他们的属性赋值并按顺序打印名字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    pass</div><div class="line"></div><div class="line">p1 = Person()</div><div class="line">p1.name = &apos;Bart&apos;</div><div class="line"></div><div class="line">p2 = Person()</div><div class="line">p2.name = &apos;Adam&apos;</div><div class="line"></div><div class="line">p3 = Person()</div><div class="line">p3.name = &apos;Lisa&apos;</div><div class="line"></div><div class="line">L1 = [p1, p2, p3]</div><div class="line">L2 = sorted(L1,lambda x,y:cmp(x.name,y.name))</div><div class="line"></div><div class="line">print L2[0].name</div><div class="line">print L2[1].name</div><div class="line">print L2[2].name</div></pre></td></tr></table></figure></p>
+<p>实例的属性可以像普通变量一样进行操作</p>
+<h3 id="初始化实例属性"><a href="#初始化实例属性" class="headerlink" title="初始化实例属性"></a>初始化实例属性</h3><p>当创建实例的时候，<strong>init</strong>方法会自动调用<br>第一个参数必须是self，还要提供其他属性<br>**kw表示接受一个dict即任意关键字属性<br>除了可以直接使用self.name = ‘xxx’设置一个属性外，还可以通过<br>setattr(self, ‘name’, ‘xxx’) 设置属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self,name,gender,birth,**kw):</div><div class="line">        self.name = name</div><div class="line">        self.gender = gender</div><div class="line">        self.birth = birth</div><div class="line">        for k,v in kw.iteritems():</div><div class="line">            setattr(self,k,v)</div><div class="line">            </div><div class="line">xiaoming = Person(&apos;Xiao Ming&apos;, &apos;Male&apos;, &apos;1990-1-1&apos;, job=&apos;Student&apos;)</div><div class="line"></div><div class="line">print xiaoming.name</div><div class="line">print xiaoming.job</div></pre></td></tr></table></figure>
+<h3 id="访问限制"><a href="#访问限制" class="headerlink" title="访问限制"></a>访问限制</h3><p>属性若以双下划线开头，则无法被外部函数访问，若访问，则返回AttributeError<br>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, score):</div><div class="line">        self.name = name</div><div class="line">        self.__score = score</div><div class="line"></div><div class="line">p = Person(&apos;Bob&apos;, 59)</div><div class="line"></div><div class="line">print p.name</div><div class="line">try:</div><div class="line">    print p.score</div><div class="line">except AttributeError:</div><div class="line">    print &apos;attributeerror&apos;</div></pre></td></tr></table></figure></p>
+<h3 id="类属性"><a href="#类属性" class="headerlink" title="类属性"></a>类属性</h3><p>类属性是一个共用的属性，任何实例都可以调用，没有实例也可以调用<br>直接 类型.类属性 即可<br>由于python是动态语言，故任何一个实例可以对类属性进行修改<br>如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    address = &apos;Earth&apos;</div><div class="line">    def __init__(self, name):</div><div class="line">        self.name = name</div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;)</div><div class="line">p2 = Person(&apos;Alice&apos;)</div><div class="line"></div><div class="line">print &apos;Person.address = &apos; + Person.address</div><div class="line"></div><div class="line">p1.address = &apos;China&apos;</div><div class="line">print &apos;p1.address = &apos; + p1.address</div><div class="line"></div><div class="line">print &apos;Person.address = &apos; + Person.address</div><div class="line">print &apos;p2.address = &apos; + p2.address</div><div class="line">输出结果为</div><div class="line">Person.address = Earth</div><div class="line">p1.address = China</div><div class="line">Person.address = Earth</div><div class="line">p2.address = Earth</div></pre></td></tr></table></figure></p>
+<p>由此可知，实例修改的address是实例自身的属性，并不是类属性，当实例自身没有实例属性的属性时，则会调用类属性，因此当实例属性与类属性冲突时，实例属性的优先级较高，若把p1的实例属性删掉<code>del p1.address</code>返回的又会是类属性Earth<br>若将类属性改为<code>__xxx</code>访问限制类型的，则不能被外部函数访问</p>
+<h3 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h3><p>实例方法就是类中定义的函数，第一个参数永远是self<br>例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line"></div><div class="line">    def __init__(self, name, score):</div><div class="line">        self.__score = score</div><div class="line">        self.name = name</div><div class="line"></div><div class="line">    def get_grade(self):</div><div class="line">        if self.__score &gt; 80:</div><div class="line">            return &apos;A&apos;</div><div class="line">        elif self.__score &gt; 60:</div><div class="line">            return &apos;B&apos;</div><div class="line">        else:</div><div class="line">            return &apos;C&apos;</div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;, 90)</div><div class="line">p2 = Person(&apos;Alice&apos;, 65)</div><div class="line">p3 = Person(&apos;Tim&apos;, 48)</div><div class="line"></div><div class="line">print p1.get_grade()</div><div class="line">print p2.get_grade()</div><div class="line">print p3.get_grade()</div></pre></td></tr></table></figure></p>
+<h3 id="方法也是属性"><a href="#方法也是属性" class="headerlink" title="方法也是属性"></a>方法也是属性</h3><p>可以在实例中动态增加方法或者属性<br>需要用到<code>types.MethodType()</code>将函数变为一个方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">import types</div><div class="line">def fn_get_grade(self):</div><div class="line">    if self.score &gt;= 80:</div><div class="line">        return &apos;A&apos;</div><div class="line">    if self.score &gt;= 60:</div><div class="line">        return &apos;B&apos;</div><div class="line">    return &apos;C&apos;</div><div class="line"></div><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, score):</div><div class="line">        self.name = name</div><div class="line">        self.score = score</div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;, 90)</div><div class="line">p1.get_grade = types.MethodType(fn_get_grade, p1, Person)</div><div class="line">print p1.get_grade()</div><div class="line"># =&gt; A</div><div class="line">p2 = Person(&apos;Alice&apos;, 65)</div><div class="line">print p2.get_grade()</div><div class="line"># ERROR: AttributeError: &apos;Person&apos; object has no attribute &apos;get_grade&apos;</div><div class="line"># 因为p2实例并没有绑定get_grade</div></pre></td></tr></table></figure></p>
+<p>也可以往实例中添加一个属性，这个属性存放一个函数，函数与方法的区别是方法在调用的时候需要给定参数self<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line"></div><div class="line">    def __init__(self, name, score):</div><div class="line">        self.name = name</div><div class="line">        self.score = score</div><div class="line">        self.get_grade = lambda: &apos;A&apos;//这是一个函数</div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;, 90)</div><div class="line">print p1.get_grade</div><div class="line">print p1.get_grade()</div></pre></td></tr></table></figure></p>
+<h3 id="定义类方法"><a href="#定义类方法" class="headerlink" title="定义类方法"></a>定义类方法</h3><p>通过标记一个<code>@classmethod</code>后再定义方法，则可以获得一个类方法，方法的第一个参数为类本身，通常记为cls</p>
+<h2 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h2><p>分为is和has关系<br>is关系是继承 人和学生<br>has关系应该采用组合，而非继承 人和书</p>
+<p>定义继承的类时，只要把新的类的属性补上即可<br>但一定要使用类自身的初始化函数<code>__init__</code>内使用<code>super(Student, self).__init__(name, gender)将类初始化</code><br>初始self在super中已传入，在<code>__init__</code>中将隐式传递，不需要写出也不能写出</p>
+<h3 id="判断类型"><a href="#判断类型" class="headerlink" title="判断类型"></a>判断类型</h3><p>判断一个实例是不是某一个类<br><code>isinstance(t,Person)</code><br>判断t是否Person类</p>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>python中父类子类定义同一个方法，实例优先调用自己的方法<br>例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, gender):</div><div class="line">        self.name = name</div><div class="line">        self.gender = gender</div><div class="line">    def whoAmI(self):</div><div class="line">        return &apos;I am a Person, my name is %s&apos; % self.name</div><div class="line"></div><div class="line">class Student(Person):</div><div class="line">    def __init__(self, name, gender, score):</div><div class="line">        super(Student, self).__init__(name, gender)</div><div class="line">        self.score = score</div><div class="line">    def whoAmI(self):</div><div class="line">        return &apos;I am a Student, my name is %s&apos; % self.name</div><div class="line"></div><div class="line">class Teacher(Person):</div><div class="line">    def __init__(self, name, gender, course):</div><div class="line">        super(Teacher, self).__init__(name, gender)</div><div class="line">        self.course = course</div><div class="line">    def whoAmI(self):</div><div class="line">        return &apos;I am a Teacher, my name is %s&apos; % self.name</div></pre></td></tr></table></figure></p>
+<h3 id="python中多重继承"><a href="#python中多重继承" class="headerlink" title="python中多重继承"></a>python中多重继承</h3><p>python允许从多个类进行继承<br>即一个类拥有多种属性<br><a href="http://www.jb51.net/article/65059.htm" target="_blank" rel="external">http://www.jb51.net/article/65059.htm</a></p>
+<h3 id="获取对象信息"><a href="#获取对象信息" class="headerlink" title="获取对象信息"></a>获取对象信息</h3><p>除了<code>isinstance(t,Person)</code>可以判断实例以外，还可以使用<br><code>type()</code>函数获取变量的类型<br><code>dir()</code> 函数获取变量的所有属性<br>如整型也有很多属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">dir(123)   # 整数也有很多属性...</div><div class="line">[&apos;__abs__&apos;, &apos;__add__&apos;, &apos;__and__&apos;, &apos;__class__&apos;, &apos;__cmp__&apos;, ...]</div></pre></td></tr></table></figure></p>
+<p>对类这种变量来说，其中的方法也是一种属性<br><code>getattr</code>和<code>setattr</code>可以获取或设置对象的属性<br>例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, gender, **kw):</div><div class="line">        self.name = name</div><div class="line">        self.gender = gender</div><div class="line">        for k, v in kw.iteritems():</div><div class="line">            setattr(self, k, v)</div><div class="line"></div><div class="line">p = Person(&apos;Bob&apos;, &apos;Male&apos;, age=18, course=&apos;Python&apos;)</div><div class="line">print p.age</div><div class="line">print p.course</div></pre></td></tr></table></figure></p>
+<h2 id="定制类"><a href="#定制类" class="headerlink" title="定制类"></a>定制类</h2><p>python中的特殊方法<br>下面看看<code>__str__</code>与<code>__repr__</code>的区别<br><a href="http://blog.csdn.net/luckytanggu/article/details/53649156" target="_blank" rel="external">http://blog.csdn.net/luckytanggu/article/details/53649156</a><br><code>__str__</code>是面向用户的<br><code>__repr__</code>是面向程序员的<br>class中未将两种方法重构时,不管是直接输出还是print输出都是显示对象的内存地址<br>重构<code>__repr__</code>之后，无论是直接输出对象还是print输出都是按照重构后的<code>__repr__</code>方法定义实现<br>重构<code>__str__</code>之后，直接输出对象显示内存地址，按print输出是按照重构之后的<code>__str__</code>方法定义实现</p>
+<p>若对int，str进行排序，则是使用默认的cmp排序函数<br>若对Student类的实例进行排序时，就要使用自己定义的<code>__cmp__()</code>特殊方法</p>
+<h3 id="python中的-len"><a href="#python中的-len" class="headerlink" title="python中的__len__"></a>python中的<code>__len__</code></h3>
+	</div>
+	<div class="meta split">
+		
+			<span>本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+		
+		<time class="post-date" datetime="2017-04-09T00:00:00.000Z" itemprop="datePublished">2017-04-09</time>
+	</div>
+</article>
+
+<!--评论-->
+
+	
+<div class="ds-thread" data-thread-key="pyhon进阶" data-title="python" data-url="https://frozenc.github.io/2017/04/09/pyhon进阶/"></div>
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"yumemor"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
+
+  
+</div>
+
+
+  <svg id="bigTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z"></path>
+  </svg>
+
+  
+
+
+  <div class="wrapper"></div>
+
+
+
+
+
+<div class="fat-footer">
+	<div class="wrapper">
+		<div class="layout layout--center">
+			<div class="layout__item palm-mb">
+				<div class="media">
+					<img class="headimg" src='http://oct8d1mqf.bkt.clouddn.com/2016-10-17-15%3A42%3A28.jpg' alt='John Doe'>
+					<div class="media__body">
+						<h4>frozenchan</h4>
+						<p class='site-description'></p>
+					</div>
+				</div>
+				<div class="author-contact">
+					<ul>
+						
+							
+							<li>
+				        		<a href="http://weibo.com/yumemor/" target="_blank">
+				        			
+				        				<i class="iconfont icon-weibo"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://github.com/yumemor" target="_blank">
+				        			
+				        				<i class="iconfont icon-github"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://www.zhihu.com/people/yumemor" target="_blank">
+				        			
+										<i class="iconfont icon-zhihu"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="footer" role="contentinfo">
+	<div class="wrapper wrapper--wide split split--responsive">
+		
+			<span>本站总访问量 <span id="busuanzi_value_site_pv"></span> 次, 访客数 <span id="busuanzi_value_site_uv"></span> 人次</span>
+		
+		<span>Theme by <a href="http://github.com/yumemor">Yumemor</a>. Powered by <a href="http://hexo.io">Hexo</a></span>
+	</div>
+</footer>
+
+	<!-－这里导入了 lib.js 里面涵盖了 jQuery 等框架 所以注释掉-->
+	<!--<script src="http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js"></script>-->
+	<script src="/js/lib.js"></script>
+	<script src="/js/google-code-prettify/prettify.js"></script>
+	<script src="/js/module.js"></script>
+	<script src="/js/script.js"></script>
+	
+		<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+	<script type='text/javascript'>
+		//代码高亮
+		$(document).ready(function(){
+	 		$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+   			prettyPrint();
+		});
+	</script>
+	</body>
+</html>
