@@ -128,9 +128,35 @@
 </nav>
 
     <!-- Main Content -->
-    <!-- Page Header -->
+    <!-- Page Background -->
+<style media="screen">
+  .bing_background {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .bing_background video {
+    width: 100%;
+    display: block;
+  }
+
+  .intro-header {
+    position: relative;
+    background-color: transparent;
+    overflow-y: hidden;
+  }
+</style>
+
+<!-- Page Header -->
 <!-- Set your background image for this header in the theme's configuration: index_cover -->
-<header class="intro-header" style="background-image: url('https://raw.githubusercontent.com/frozenc/frozenc.github.io/master/FOREST.jpg')">
+<!-- <header class="intro-header" style="background-image: url('https://raw.githubusercontent.com/frozenc/frozenc.github.io/master/FOREST.jpg')"> -->
+<header class="intro-header">
+    <div class="bing_background">
+      <video autoplay loop poster="">
+        <source src="" type="video/mp4">
+      </video>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -187,7 +213,6 @@
         </div>
     </div>
 </div>
-
 
 
     <!-- Footer -->
