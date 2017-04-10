@@ -1,172 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<!-- Head tag -->
+<html>
 <head>
+  <meta charset="utf-8">
+  
+  <title>python | frozenchan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="pyhon进阶 函数式编程函数名就是指向函数的变量12345abs(-10)//输出10f=absf(-10)//输出10abs=lenabs([1,2,3])//返回一个list的长度 高阶函数能接收函数作为参数的函数12345import mathdef add(x,y,f):return f(x)+f(y)add(-5,9,abs)//输出14add(4,9,math.sqrt)//输出5">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python">
+<meta property="og:url" content="https://frozenc.github.io/2017/04/09/pyhon进阶/index.html">
+<meta property="og:site_name" content="frozenchan">
+<meta property="og:description" content="pyhon进阶 函数式编程函数名就是指向函数的变量12345abs(-10)//输出10f=absf(-10)//输出10abs=lenabs([1,2,3])//返回一个list的长度 高阶函数能接收函数作为参数的函数12345import mathdef add(x,y,f):return f(x)+f(y)add(-5,9,abs)//输出14add(4,9,math.sqrt)//输出5">
+<meta property="og:updated_time" content="2017-04-10T05:08:18.452Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python">
+<meta name="twitter:description" content="pyhon进阶 函数式编程函数名就是指向函数的变量12345abs(-10)//输出10f=absf(-10)//输出10abs=lenabs([1,2,3])//返回一个list的长度 高阶函数能接收函数作为参数的函数12345import mathdef add(x,y,f):return f(x)+f(y)add(-5,9,abs)//输出14add(4,9,math.sqrt)//输出5">
+  
+    <link rel="alternate" href="/atom.xml" title="frozenchan" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/js/jquery-3.1.1.min.js"></script>
 
-    <!--Description-->
-    
-        <meta name="description" content="pyhon进阶
-函数式编程函数名就是指向函数的变量12345abs(-10)//输出10f=absf(-10)//输出10abs=lenabs([1,2,3])//返回一个list的长度
-高阶函数能接收函数作为参数的函数12345import mathdef add(x,y,f):return f(">
-    
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
-    <!--Author-->
-    
-        <meta name="author" content="John Doe">
-    
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
 
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="python"/>
-    
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
 
-    <!--Open Graph Description-->
-    
+  
 
-    <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="frozenchan"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="article" />
-    
-
-    <!--Page Cover-->
-    
-
-        <meta name="twitter:card" content="summary" />
-    
-
-    <!-- Title -->
-    
-    <title>python - frozenchan</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
-
-    <!-- Google Analytics -->
-    
-
-
-    <!-- favicon -->
-    
-    <link rel="icon" href="https://raw.githubusercontent.com/frozenc/frozenc.github.io/master/img/myicon.ico">
-    
-	
 </head>
 
 
-<body>
 
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Configurable Title</a>
-        </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
                 
-                    <li>
-                        <a href="/">
-                            
-                                Home
-                            
-                        </a>
-                    </li>
+                  <li> <a class="main-nav-link" href="/">Home</a> </li>
                 
-                    <li>
-                        <a href="/archives">
-                            
-                                Archives
-                            
-                        </a>
-                    </li>
+                  <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
                 
-                    <li>
-                        <a href="https://github.com/frozenc">
-                            
-                                <i class="fa fa-github fa-stack-2x"></i>
-                            
-                        </a>
-                    </li>
+                  <li> <a class="main-nav-link" href="/categories">Catégories</a> </li>
                 
-            </ul>
+                  <li> <a class="main-nav-link" href="/tags">Mot-clés</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
-        <!-- /.navbar-collapse -->
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
     </div>
-    <!-- /.container -->
-</nav>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
 
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
-
-<header class="intro-header" style="background-image: url('http://i4.buimg.com/1949/b2b51b53b3ea4068.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>python</h1>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                        2017-04-09
-                    </span>
-                </div>
+</div></li>
             </div>
-        </div>
+          </div>
+                
+      </div>
     </div>
+
 </header>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
 
-            <!-- Tags and categories -->
-           
 
-            <!-- Gallery -->
+      
             
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-pyhon进阶" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      python
+    </h1>
+  
 
-            <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h1 id="pyhon进阶"><a href="#pyhon进阶" class="headerlink" title="pyhon进阶"></a>pyhon进阶</h1><hr>
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/04/09/pyhon进阶/" class="article-date">
+	  <time datetime="2017-04-09T00:00:00.000Z" itemprop="datePublished">2017-04-09</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="pyhon进阶"><a href="#pyhon进阶" class="headerlink" title="pyhon进阶"></a>pyhon进阶</h1><hr>
 <h1 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h1><p>函数名就是指向函数的变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">abs(-10)//输出10</div><div class="line">f=abs</div><div class="line">f(-10)//输出10</div><div class="line">abs=len</div><div class="line">abs([1,2,3])//返回一个list的长度</div></pre></td></tr></table></figure></p>
 <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><p>能接收函数作为参数的函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import math</div><div class="line">def add(x,y,f):</div><div class="line">return f(x)+f(y)</div><div class="line">add(-5,9,abs)//输出14</div><div class="line">add(4,9,math.sqrt)//输出5</div></pre></td></tr></table></figure></p>
 <h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>map函数是一个高阶函数，接收list与函数f，将f作用于list的每个元素上，并返回一个新的list<br>例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def format_name(s):</div><div class="line">    return s.capitalize()#首字母大写，其余小写函数</div><div class="line">    #亦可以使用s[0].upper,s[1:].lower</div><div class="line">print map(format_name, [&apos;adam&apos;, &apos;LISA&apos;, &apos;barT&apos;])</div></pre></td></tr></table></figure></p>
@@ -220,76 +227,245 @@ from logging import log as logger</code></p>
 <h2 id="定制类"><a href="#定制类" class="headerlink" title="定制类"></a>定制类</h2><p>python中的特殊方法<br>下面看看<code>__str__</code>与<code>__repr__</code>的区别<br><a href="http://blog.csdn.net/luckytanggu/article/details/53649156" target="_blank" rel="external">http://blog.csdn.net/luckytanggu/article/details/53649156</a><br><code>__str__</code>是面向用户的<br><code>__repr__</code>是面向程序员的<br>class中未将两种方法重构时,不管是直接输出还是print输出都是显示对象的内存地址<br>重构<code>__repr__</code>之后，无论是直接输出对象还是print输出都是按照重构后的<code>__repr__</code>方法定义实现<br>重构<code>__str__</code>之后，直接输出对象显示内存地址，按print输出是按照重构之后的<code>__str__</code>方法定义实现</p>
 <p>若对int，str进行排序，则是使用默认的cmp排序函数<br>若对Student类的实例进行排序时，就要使用自己定义的<code>__cmp__()</code>特殊方法</p>
 <h3 id="python中的-len"><a href="#python中的-len" class="headerlink" title="python中的__len__"></a>python中的<code>__len__</code></h3>
-
-                
-            </div>
-
-            <!-- Comments -->
-            
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
-
-
-                </div>
-            
-        </div>
+      
     </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/04/09/pyhon进阶/" data-title="python" data-url="https://frozenc.github.io/2017/04/09/pyhon进阶/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"iTimeTraveler"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/04/08/Hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          helloworld：）
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
 </article>
 
-    <!-- Footer -->
-    <hr />
+<!-- Table of Contents -->
 
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
-
-                    
-
-                    
-                        <li>
-                            <a href="https://github.com/frozenc" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    
-
-                    
-
-                    
-
-                    
-                </ul>
-                <p class="copyright text-muted">&copy; 2017 frozenchan<br></p>
-                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
-                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
-            </div>
-        </div>
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pyhon进阶"><span class="nav-number">1.</span> <span class="nav-text">pyhon进阶</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数式编程"><span class="nav-number">2.</span> <span class="nav-text">函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#高阶函数"><span class="nav-number">2.1.</span> <span class="nav-text">高阶函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">2.1.1.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reduce"><span class="nav-number">2.1.2.</span> <span class="nav-text">reduce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter"><span class="nav-number">2.1.3.</span> <span class="nav-text">filter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sorted"><span class="nav-number">2.1.4.</span> <span class="nav-text">sorted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回类型"><span class="nav-number">2.1.5.</span> <span class="nav-text">返回类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python中闭包"><span class="nav-number">2.1.6.</span> <span class="nav-text">python中闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名函数"><span class="nav-number">2.1.7.</span> <span class="nav-text">匿名函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#decorator装饰器"><span class="nav-number">2.1.8.</span> <span class="nav-text">decorator装饰器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#偏函数"><span class="nav-number">2.1.9.</span> <span class="nav-text">偏函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块与包"><span class="nav-number">2.2.</span> <span class="nav-text">模块与包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用futrue"><span class="nav-number">2.2.1.</span> <span class="nav-text">使用futrue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块管理工具"><span class="nav-number">2.2.2.</span> <span class="nav-text">模块管理工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python之面向对象编程"><span class="nav-number">2.3.</span> <span class="nav-text">python之面向对象编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建实例属性"><span class="nav-number">2.3.1.</span> <span class="nav-text">创建实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化实例属性"><span class="nav-number">2.3.2.</span> <span class="nav-text">初始化实例属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问限制"><span class="nav-number">2.3.3.</span> <span class="nav-text">访问限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类属性"><span class="nav-number">2.3.4.</span> <span class="nav-text">类属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例方法"><span class="nav-number">2.3.5.</span> <span class="nav-text">实例方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法也是属性"><span class="nav-number">2.3.6.</span> <span class="nav-text">方法也是属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义类方法"><span class="nav-number">2.3.7.</span> <span class="nav-text">定义类方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的继承"><span class="nav-number">2.4.</span> <span class="nav-text">类的继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断类型"><span class="nav-number">2.4.1.</span> <span class="nav-text">判断类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">2.4.2.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python中多重继承"><span class="nav-number">2.4.3.</span> <span class="nav-text">python中多重继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取对象信息"><span class="nav-number">2.4.4.</span> <span class="nav-text">获取对象信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定制类"><span class="nav-number">2.5.</span> <span class="nav-text">定制类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#python中的-len"><span class="nav-number">2.5.1.</span> <span class="nav-text">python中的__len__</span></a></li></ol></li></ol></li></ol>
+    
     </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 frozenchan All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				<span id="busuanzi_container_site_uv"> UV : <span id="busuanzi_value_site_uv"></span></span> |  
+				<span id="busuanzi_container_site_pv"> PV : <span id="busuanzi_value_site_pv"></span></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
 </footer>
 
 
-    <!-- After footer scripts -->
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
     
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<!-- Disqus Comments -->
 
+
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            frozenchan
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 John Doe All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
 
 
 </body>
-
 </html>
